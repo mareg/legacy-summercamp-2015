@@ -1,6 +1,7 @@
 <?php
 
 require '../_inc/db.php';
+require '../_inc/container.php';
 
 session_start();
 
@@ -52,10 +53,20 @@ while($row = $res->fetchArray()) {
     }
 }
 
+if ($postage = $container->get('acme.postage.calculator')->calculateForBasket($_SESSION['basket'])) {
+    $postage = $postage->toView();
+    $total_value += $postage['price'];
+    ?>
+        <tr>
+            <td colspan="3">Postage & packing</td>
+            <td style="text-align: right">£<?php echo $postage['price']; ?></td>
+        </tr>
+<?php
+}
+
 ?>
         <tr>
-            <th colspan="2">Total:</th>
-            <td style="text-align: right"><?php echo $total_qt; ?></td>
+            <th colspan="3">Total:</th>
             <td style="text-align: right">£<?php echo $total_value; ?></td>
         </tr>
     </tbody>

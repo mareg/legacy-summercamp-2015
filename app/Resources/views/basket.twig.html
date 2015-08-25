@@ -1,0 +1,33 @@
+{% if items_count > 0 %}
+<table border="1">
+    <thead>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Gross</th>
+    </thead>
+    <tbody>
+{% for item in items %}
+        <tr>
+            <td>{{ item.postcard.title }}</td>
+            <td class="r">£{{ item.postcard.price }}</td>
+            <td class="r">{{ item.quantity }}</td>
+            <td class="r">£{{ item.value }}</td>
+{% if editable is defined and editable %}
+            <td><a href="./remove.php?id={{ item.postcard.id }}">remove</a></td>
+{% endif %}
+        </tr>
+{% endfor %}
+        <tr>
+            <td colspan="3">Postage & packing:</td>
+            <td class="r">£{{ postage.price }}</td>
+        </tr>
+        <tr>
+            <th colspan="3">Total:</t>
+            <td class="r"><strong>£{{ total_value }}</strong></td>
+        </tr>
+    </tbody>
+</table>
+{% else %}
+<p>Your basket is empty.</p>
+{% endif %}

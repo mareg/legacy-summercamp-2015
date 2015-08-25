@@ -21,57 +21,15 @@ session_start();
 <p>You are about to order the following products:</p>
 <?php
 
-$db = db_connect();
-$res = $db->query("SELECT * FROM postcards");
-?>
-<table border="1">
-    <thead>
-        <th>Product</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Gross</th>
-    </thead>
-    <tbody>
-<?php
+$basketViewData = $container->get('acme.basket.view')->toView($_SESSION['basket']);
+$basketView = $container->get('twig.renderer')->render(
+    'basket.twig.html',
+    $basketViewData
+    );
 
-$total_value = 0;
-$total_qt = 0;
-
-while($row = $res->fetchArray()) {
-    foreach ($_SESSION['basket'] as $key => $qt) {
-        if ($key === $row['id']) {
-            $total_qt += $qt;
-            $total_value += ($qt * $row['price']);
-?>
-        <tr>
-            <td><?php echo $row['title']; ?></td>
-            <td style="text-align: right;">£<?php echo $row['price']; ?></td>
-            <td style="text-align: right;"><?php echo $qt; ?></td>
-            <td style="text-align: right;">£<?php echo $qt * $row['price']; ?></td>
-        </tr>
-<?php
-        }
-    }
-}
-
-if ($postage = $container->get('acme.postage.calculator')->calculateForBasket($_SESSION['basket'])) {
-    $postage = $postage->toView();
-    $total_value += $postage['price'];
-    ?>
-        <tr>
-            <td colspan="3">Postage & packing</td>
-            <td style="text-align: right">£<?php echo $postage['price']; ?></td>
-        </tr>
-<?php
-}
+echo $basketView;
 
 ?>
-        <tr>
-            <th colspan="3">Total:</th>
-            <td style="text-align: right">£<?php echo $total_value; ?></td>
-        </tr>
-    </tbody>
-</table>
 <h3>Shipping address</h3>
 <p><label>Name:<br /><input type="text" name="addr_name" value="<?php echo $_GET['addr_name']; ?>" /></label></p>
 <p><label>Address:<br /><input type="text" name="addr_line_1" value="<?php echo $_GET['addr_line_1']; ?>" /></label><br />

@@ -35,4 +35,12 @@ form input[type=text] {
     padding: 4px 8px;
 }
 
+table td.c {
+	text-align: center;
+}
+
+table td.r {
+	text-align: right;
+}
+
 </style>

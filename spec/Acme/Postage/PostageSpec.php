@@ -16,4 +16,9 @@ class PostageSpec extends ObjectBehavior
     {
         $this->toView()->shouldReturn(['quantity' => '1', 'price' => '2.95']);
     }
+
+    function it_has_price()
+    {
+        $this->price()->shouldReturn(2.95);
+    }
 }

@@ -24,4 +24,9 @@ class Postage
             'price' => sprintf("%1.02f", $this->price)
         ];
     }
+
+    public function price()
+    {
+        return $this->price;
+    }
 }

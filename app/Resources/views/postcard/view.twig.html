@@ -1,0 +1,16 @@
+{% extends 'layout.twig.html' %}
+{% block title %}Airline postcards - {{ postcard.title }}{% endblock %}
+{% block content %}
+<h2>{{ postcard.title }}</h2>
+<img src="/images/{{ postcard.filename }}" />
+
+<ul>
+    <li>Airline: {{ postcard.airline }}</li>
+    <li>Make: {{ postcard.make }}</li>
+    <li>Price: £{{ postcard.price }} each</li>
+</ul>
+<p><a href="/basket/add.php?id={{ postcard.id }}">Add to basket</a></p>
+
+<p><a href="#" onclick="history.back(); return false;">Back</a></p>
+
+{% endblock %}

@@ -42,5 +42,12 @@
             <argument type="service" id="acme.postage.calculator" />
             <argument type="service" id="acme.postcard.repository" />
         </service>
+        
+        <service
+            id="acme.postcard_view.controller"
+            class="Acme\Postcard\PostcardViewController">
+            <argument type="service" id="acme.postcard.repository" />
+            <argument type="service" id="twig.renderer" />
+        </service>
     </services>
 </container>

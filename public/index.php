@@ -10,7 +10,7 @@ session_start();
 <head>
 <meta charset="UTF-8">
 <title>Airline postcards</title>
-<?php require 'style/style.css' ?>
+<link href="/style/style.css" rel="stylesheet">
 </head>
 <body>
 <?php require '_inc/header.php' ?>
@@ -29,10 +29,10 @@ $res = $db->query("SELECT * FROM postcards");
 
 while($row = $res->fetchArray()) { ?>
 <li>
-    <a href="product.php?id=<?php echo $row['id']; ?>"><img src="images/t/<?php echo $row['filename']; ?>" /></a><br />
+    <a href="postcard/?id=<?php echo $row['id']; ?>"><img src="images/t/<?php echo $row['filename']; ?>" /></a><br />
     <?php echo $row['title']; ?><br />
     £<?php echo $row['price']; ?><br />
-    <a href="product.php?id=<?php echo $row['id']; ?>">view details</a>
+    <a href="postcard/?id=<?php echo $row['id']; ?>">view details</a>
 </li>
 <?php } ?>
 </ul>

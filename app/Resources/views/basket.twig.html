@@ -9,7 +9,7 @@
     <tbody>
 {% for item in items %}
         <tr>
-            <td>{{ item.postcard.title }}</td>
+            <td><a href="../postcard/?id={{ item.postcard.id }}">{{ item.postcard.title }}</a></td>
             <td class="r">£{{ item.postcard.price }}</td>
             <td class="r">{{ item.quantity }}</td>
             <td class="r">£{{ item.value }}</td>

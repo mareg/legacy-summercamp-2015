@@ -11,7 +11,7 @@ session_start();
 <head>
 <meta charset="UTF-8">
 <title>Basket</title>
-<?php require '../style/style.css' ?>
+<link href="/style/style.css" rel="stylesheet">
 </head>
 <body>
 <?php require '../_inc/header.php' ?>

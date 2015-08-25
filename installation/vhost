@@ -1,0 +1,13 @@
+<VirtualHost *:80>
+
+  ServerName loose.phpsc
+  DocumentRoot /var/www/summercamp/workshops/modernising/public
+
+  <Directory "/var/www/summercamp/workshops/modernising/public">
+    AllowOverride None
+    Options +FollowSymLinks
+    Order allow,deny
+    Allow from all
+  </Directory>
+
+</VirtualHost>

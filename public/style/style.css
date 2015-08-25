@@ -1,0 +1,38 @@
+<style type="text/css">
+
+html {
+    font-family: "Comic Sans MS";
+    width: 100%;
+    background-color: #ccc;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 80%;
+    margin: -20px auto;
+    padding: 20px 20px;
+    background: #fff;
+}
+
+h1 a {
+    text-decoration: none;
+    color: #00f;
+}
+
+#products {
+    list-style: none;
+    padding: 0;
+}
+
+#products li {
+    width: 30%;
+    padding: 10px;
+    display: inline-block;
+}
+
+form input[type=text] {
+    padding: 4px 8px;
+}
+
+</style>

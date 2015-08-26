@@ -1,6 +1,6 @@
 <VirtualHost *:80>
 
-  ServerName loose.phpsc
+  ServerName modernising.phpsc
   DocumentRoot /var/www/summercamp/workshops/modernising/public
 
   <Directory "/var/www/summercamp/workshops/modernising/public">

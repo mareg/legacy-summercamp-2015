@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN pecl install apcu-beta && echo extension=apcu.so > $PHP_INI_DIR/conf.d/apcu.ini
+RUN pecl install apcu && echo extension=apcu.so > $PHP_INI_DIR/conf.d/apcu.ini
 
 # Apache configuration
 RUN a2enmod rewrite
